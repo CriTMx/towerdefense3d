@@ -20,10 +20,21 @@ public class EnemyMovement : MonoBehaviour
         Vector3 moveDir = (target.position - transform.position);
         transform.Translate(moveDir.normalized * Time.deltaTime * speed);
 
-        if (waypointIndex < WaypointsHandler.waypoints.Length && 
-            (Vector3.Distance(transform.position, target.position) <= 0.2f))
+        if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+        {
+            GetNextWaypoint();
+        }
+    }
+
+    private void GetNextWaypoint()
+    {
+        if (waypointIndex < WaypointsHandler.waypoints.Length)
         {
             target = WaypointsHandler.waypoints[waypointIndex++];
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 }
