@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    public GameObject standardTurret;
-    public GameObject anotherTurret;
+    public TurretTemplate standardTurret;
+    public TurretTemplate anotherTurret;
 
     public void PurchaseStandardTurret()
     {
@@ -16,6 +17,4 @@ public class ShopManager : MonoBehaviour
     {
         BuildManager.instance.SetTurretToBuild(anotherTurret);
     }
-
-    
 }
