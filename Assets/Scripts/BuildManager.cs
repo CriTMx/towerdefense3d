@@ -21,6 +21,9 @@ public class BuildManager : MonoBehaviour
     private TurretTemplate turretToBuild;
     public TMP_Text insufficientMoneyErrorText;
 
+    public GameObject buildEffect;
+    private GameObject buildEffectInstance;
+
     public bool CanBuild { get { return turretToBuild != null; } } 
     public bool HasMoney { get { return PlayerStatsHandler.Money >= turretToBuild.cost; } }
 
@@ -45,6 +48,10 @@ public class BuildManager : MonoBehaviour
         /*Debug.Log("build turret on");*/
         GameObject turret = Instantiate(turretToBuild.turret, node.GetBuildPosition(), turretToBuild.turret.transform.rotation);
         node.turret = turret;
+
+        buildEffectInstance = Instantiate(buildEffect, node.GetBuildPosition(), buildEffect.transform.rotation);
+        Destroy(buildEffectInstance, 1f);
+
         PlayerStatsHandler.Money -= turretToBuild.cost;
     }
 

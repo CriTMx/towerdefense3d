@@ -1863,7 +1863,7 @@ GameObject:
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1915,6 +1915,7 @@ MonoBehaviour:
   standardTurretPrefab: {fileID: 6069292053972935913, guid: 265b283dbb5b8b34eb7744ad3504fa54, type: 3}
   anotherTurretPrefab: {fileID: 602377583556866445, guid: 989d1b409004b29448bb480cda54c04e, type: 3}
   insufficientMoneyErrorText: {fileID: 269459020}
+  buildEffect: {fileID: 7865587489334809301, guid: b3884439c974a18428fe4aceab0e250f, type: 3}
 --- !u!114 &234826262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2199,8 +2200,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2235,7 +2236,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -209.0679, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6835,8 +6836,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 88.9, y: 130}
-  m_SizeDelta: {x: 155.72998, y: 40.21997}
+  m_AnchoredPosition: {x: 176.60144, y: 124.57385}
+  m_SizeDelta: {x: 331.1328, y: 51.0723}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &971193079
 MonoBehaviour:
@@ -6885,8 +6886,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7120,6 +7121,8 @@ MonoBehaviour:
   anotherTurret:
     turret: {fileID: 602377583556866445, guid: 989d1b409004b29448bb480cda54c04e, type: 3}
     cost: 4
+  standardTurretCostText: {fileID: 8557351099047703466}
+  anotherTurretCostText: {fileID: 6353484039163928777}
 --- !u!1001 &1016937046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15437,10 +15440,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1684005916639409375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -25, y: 25}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &7235602207635958553
 PrefabInstance:
@@ -15623,10 +15626,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4157674695308683196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -25, y: 25}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8647822700838970777
 CanvasRenderer:
