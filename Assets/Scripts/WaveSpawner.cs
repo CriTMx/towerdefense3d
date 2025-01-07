@@ -7,6 +7,8 @@ public class WaveSpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
 
+    public bool enableSpawning = true;
+
     public float waveCooldown = 5f;
     public float spawnCountdown = 2f;
     public float spawnCooldown = 0.5f;
@@ -19,14 +21,17 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (spawnCountdown <= 0f)
+        if (enableSpawning)
         {
-            StartCoroutine(SpawnWave());
-            spawnCountdown = waveCooldown;
-        }
+            if (spawnCountdown <= 0f)
+            {
+                StartCoroutine(SpawnWave());
+                spawnCountdown = waveCooldown;
+            }
 
-        spawnCountdown -= Time.deltaTime;
-        spawnCountdownText.text = Mathf.Round(spawnCountdown+1).ToString();
+            spawnCountdown -= Time.deltaTime;
+            spawnCountdownText.text = Mathf.Round(spawnCountdown + 1).ToString();
+        }
     }
 
 

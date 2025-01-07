@@ -34,6 +34,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
+            PlayerStatsHandler.ChangeLives(-1);
             Destroy(gameObject);
         }
     }
