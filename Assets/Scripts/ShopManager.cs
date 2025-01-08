@@ -6,15 +6,18 @@ using TMPro;
 public class ShopManager : MonoBehaviour
 {
     public TurretTemplate standardTurret;
-    public TurretTemplate anotherTurret;
+    public TurretTemplate missileTurret;
+    public TurretTemplate laserTurret;
 
     public TMP_Text standardTurretCostText;
-    public TMP_Text anotherTurretCostText;
+    public TMP_Text missleTurretCostText;
+    public TMP_Text laserTurretCostText;
 
     private void Start()
     {
         standardTurretCostText.text = standardTurret.cost.ToString();
-        anotherTurretCostText.text = anotherTurret.cost.ToString();
+        missleTurretCostText.text = missileTurret.cost.ToString();
+        laserTurretCostText.text = laserTurret.cost.ToString();
     }
 
     public void PurchaseStandardTurret()
@@ -22,8 +25,13 @@ public class ShopManager : MonoBehaviour
         BuildManager.instance.SetTurretToBuild(standardTurret);
     }
 
-    public void PurchaseAnotherTurret()
+    public void PurchaseMissileTurret()
     {
-        BuildManager.instance.SetTurretToBuild(anotherTurret);
+        BuildManager.instance.SetTurretToBuild(missileTurret);
+    }
+
+    public void PurchaseLaserTurret()
+    {
+        BuildManager.instance.SetTurretToBuild(laserTurret);
     }
 }

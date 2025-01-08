@@ -7,6 +7,7 @@ public class BulletBehavior : MonoBehaviour
     private Transform target;
     public float speed = 40f;
     public float explosionRadius = 0f;
+    public int bulletDamage = 0;
 
     public GameObject bulletImpactEffect;
     public GameObject bulletExplosionEffect;
@@ -62,7 +63,10 @@ public class BulletBehavior : MonoBehaviour
 
     void DamageSingleTarget(GameObject _target)
     {
-        if (_target.CompareTag("Enemy")) Destroy(_target);
+        if (_target.CompareTag("Enemy"))
+        {
+            _target.GetComponent<EnemyHealth>().TakeDamage(bulletDamage);
+        }
     }
 
     void DamageAOEAtTarget(GameObject _target)
@@ -73,7 +77,11 @@ public class BulletBehavior : MonoBehaviour
         Collider[] affectedTargets = Physics.OverlapSphere(_target.transform.position, explosionRadius);
         foreach (Collider targ in affectedTargets)
         {
-            if (targ.CompareTag("Enemy")) Destroy(targ.gameObject);
+            if (targ.CompareTag("Enemy"))
+            {
+                targ.GetComponent<EnemyHealth>().TakeDamage(bulletDamage);
+                
+            }
         }
     }
 }

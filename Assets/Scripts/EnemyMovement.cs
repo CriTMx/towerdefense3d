@@ -6,23 +6,32 @@ public class EnemyMovement : MonoBehaviour
 {
 
     private float speed = 4f;
+    private float speedModifiable;
     private Transform target;
     private int waypointIndex = 0;
+    private float speedTimer = 0f;
 
     
     void Start()
     {
         target = WaypointsHandler.waypoints[waypointIndex++];
+        speedModifiable = speed;
     }
 
     void Update()
     {
         Vector3 moveDir = (target.position - transform.position);
-        transform.Translate(moveDir.normalized * Time.deltaTime * speed);
+        transform.Translate(moveDir.normalized * Time.deltaTime * speedModifiable);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
             GetNextWaypoint();
+        }
+
+        if (speedTimer > 0f) speedTimer -= Time.deltaTime;
+        else
+        {
+            speedModifiable = speed;
         }
     }
 
@@ -37,5 +46,11 @@ public class EnemyMovement : MonoBehaviour
             PlayerStatsHandler.ChangeLives(-1);
             Destroy(gameObject);
         }
+    }
+
+    public void ChangeSpeed(float amount)
+    {
+        speedTimer = 1f;
+        speedModifiable = amount;
     }
 }
