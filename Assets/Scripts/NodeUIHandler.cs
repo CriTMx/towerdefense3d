@@ -11,8 +11,6 @@ public class NodeUIHandler : MonoBehaviour
     {
         targetNode = _targetNode;
 
-        Debug.Log(_targetNode.GetBuildPosition());
-
         transform.position = targetNode.GetBuildPosition();
         this.enabled = true;
         ui.SetActive(true);

@@ -18613,7 +18613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.87058824}
+  m_Color: {r: 0.23366857, g: 0.6184433, b: 0.8396226, a: 0.87058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -19232,10 +19232,10 @@ RectTransform:
   - {fileID: 8384928266113170760}
   m_Father: {fileID: 302294272002567083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 25, y: -12.52775}
+  m_SizeDelta: {x: 50, y: 25.0555}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4484148559703402474
 GameObject:
@@ -19249,13 +19249,15 @@ GameObject:
   - component: {fileID: 6114612528144217658}
   - component: {fileID: 2027324522253924764}
   - component: {fileID: 4372168876086595754}
+  - component: {fileID: 8107936252629939118}
+  - component: {fileID: 8107936252629939117}
   m_Layer: 0
   m_Name: NodeUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &4828139266498856014
 GameObject:
   m_ObjectHideFlags: 0
@@ -19366,10 +19368,10 @@ RectTransform:
   - {fileID: 614202835201158210}
   m_Father: {fileID: 302294272002567083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 75, y: -12.52775}
+  m_SizeDelta: {x: 50, y: 25.0555}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5997205320094570748
 CanvasRenderer:
@@ -19641,6 +19643,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1.8357868}
   m_SizeDelta: {x: 100, y: 37.8255}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &8107936252629939117
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4484148559703402474}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &8107936252629939118
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4484148559703402474}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 08b123135187c024898b2f36b8b00884, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!224 &8384928266113170760
 RectTransform:
   m_ObjectHideFlags: 0
