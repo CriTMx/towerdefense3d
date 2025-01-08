@@ -17,7 +17,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform spawnPoint;
 
-    private int waveNumber = 1;
+    public int waveNumber = 1;
 
     private void Update()
     {
