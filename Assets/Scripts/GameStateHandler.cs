@@ -31,6 +31,7 @@ public class GameStateHandler : MonoBehaviour
         waveCountdownDisplay.SetActive(false);
         gameOverScreen.SetActive(true);
         scoreText.text = (GetComponent<WaveSpawner>().waveNumber - 1).ToString();
+        OnGameEnd?.Invoke();
     }
 
     public void Retry()

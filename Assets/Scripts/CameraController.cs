@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    [Header("Master Control")]
+    [SerializeField] private bool enableCameraControl = true;
+
+    private void Awake()
+    {
+        GameStateHandler.OnGameEnd += DisableAllCameraMovement;
+    }
+
     [Header("Panning")]
     public float panSpeed = 30f;
     public float panBorderThickness = 10;
@@ -25,28 +33,36 @@ public class CameraController : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKey("w") /*|| Input.mousePosition.y >= (Screen.height - panBorderThickness)*/)
+        if (enableCameraControl)
         {
-            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
-        }
-        else if (Input.GetKey("a") /*|| Input.mousePosition.x <= panBorderThickness*/)
-        {
-            transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
-        }
-        else if (Input.GetKey("s") /*|| Input.mousePosition.y <= panBorderThickness*/)
-        {
-            transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
-        }
-        else if (Input.GetKey("d") /*|| Input.mousePosition.x >= (Screen.width - panBorderThickness)*/)
-        {
-            transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
-        }
+            if (Input.GetKey("w") /*|| Input.mousePosition.y >= (Screen.height - panBorderThickness)*/)
+            {
+                transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
+            }
+            else if (Input.GetKey("a") /*|| Input.mousePosition.x <= panBorderThickness*/)
+            {
+                transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
+            }
+            else if (Input.GetKey("s") /*|| Input.mousePosition.y <= panBorderThickness*/)
+            {
+                transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
+            }
+            else if (Input.GetKey("d") /*|| Input.mousePosition.x >= (Screen.width - panBorderThickness)*/)
+            {
+                transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
+            }
 
-        scroll = Input.GetAxis("Mouse ScrollWheel");
-        zoom = transform.position;
-        zoom.y -= scroll * 1000 * scrollSpeed * Time.deltaTime;
-        zoom.y = Mathf.Clamp(zoom.y, minY, maxY);
+            scroll = Input.GetAxis("Mouse ScrollWheel");
+            zoom = transform.position;
+            zoom.y -= scroll * 1000 * scrollSpeed * Time.deltaTime;
+            zoom.y = Mathf.Clamp(zoom.y, minY, maxY);
 
-        transform.position = zoom;
+            transform.position = zoom;
+        }
+    }
+
+    void DisableAllCameraMovement()
+    {
+        enableCameraControl = false;
     }
 }
