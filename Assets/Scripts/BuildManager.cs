@@ -20,6 +20,9 @@ public class BuildManager : MonoBehaviour
     public GameObject laserTurretPrefab;
 
     private TurretTemplate turretToBuild;
+    private NodeHandler selectedNode;
+    public NodeUIHandler nodeUI;
+
     public TMP_Text insufficientMoneyErrorText;
 
     public GameObject buildEffect;
@@ -36,6 +39,15 @@ public class BuildManager : MonoBehaviour
     public void SetTurretToBuild(TurretTemplate _turretToBuild)
     {
         turretToBuild = _turretToBuild;
+        selectedNode = null;
+        nodeUI.HideUI();
+    }
+
+    public void SelectNode(NodeHandler node)
+    {
+        selectedNode = node;
+        turretToBuild = null;
+        nodeUI.SetTargetNode(selectedNode);
     }
 
 

@@ -39,10 +39,23 @@ public class NodeHandler : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (turret != null || !buildManager.CanBuild || EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
+
+        if (turret != null)
+        {
+            buildManager.SelectNode(this);
+            return;
+        }
+
+        if (!buildManager.CanBuild)
+        {
+            return;
+        }
+
+        
 
         buildManager.BuildTurretOn(this);
     }
