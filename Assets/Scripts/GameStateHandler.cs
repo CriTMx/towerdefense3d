@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
 using TMPro;
 
 
@@ -10,8 +9,9 @@ public class GameStateHandler : MonoBehaviour
 {
     public static GameStateHandler instance;
 
+    public static int gameState = 1;
+
     public int score;
-    public static System.Action OnGameEnd;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class GameStateHandler : MonoBehaviour
         waveCountdownDisplay.SetActive(false);
         gameOverScreen.SetActive(true);
         scoreText.text = (GetComponent<WaveSpawner>().waveNumber - 1).ToString();
-        OnGameEnd?.Invoke();
+        gameState = 0;
     }
 
     public void Retry()

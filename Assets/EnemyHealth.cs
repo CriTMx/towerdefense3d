@@ -11,18 +11,20 @@ public class EnemyHealth : MonoBehaviour
     public GameObject deathEffect;
     private GameObject deathEffectInstance;
 
-    private void Awake()
-    {
-        GameStateHandler.OnGameEnd += DestroyWhenGameEnds;
-    }
-
     public void TakeDamage(float amount)
     {
-        Debug.Log("enemy health: " + health);
         health -= amount;
         if (health <= 0)
         {
             Die();
+        }
+    }
+
+    private void Update()
+    {
+        if (GameStateHandler.gameState == 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 
@@ -34,10 +36,4 @@ public class EnemyHealth : MonoBehaviour
         Destroy(deathEffectInstance, 0.5f);
         Destroy(gameObject);
     }
-
-    void DestroyWhenGameEnds()
-    {
-        Destroy(gameObject);
-    }
-
 }

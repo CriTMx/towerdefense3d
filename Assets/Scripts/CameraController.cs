@@ -7,11 +7,6 @@ public class CameraController : MonoBehaviour
     [Header("Master Control")]
     [SerializeField] private bool enableCameraControl = true;
 
-    private void Awake()
-    {
-        GameStateHandler.OnGameEnd += DisableAllCameraMovement;
-    }
-
     [Header("Panning")]
     public float panSpeed = 30f;
     public float panBorderThickness = 10;
@@ -33,6 +28,8 @@ public class CameraController : MonoBehaviour
     
     void Update()
     {
+        CheckGameStateForCamera();
+
         if (enableCameraControl)
         {
             if (Input.GetKey("w") /*|| Input.mousePosition.y >= (Screen.height - panBorderThickness)*/)
@@ -58,6 +55,14 @@ public class CameraController : MonoBehaviour
             zoom.y = Mathf.Clamp(zoom.y, minY, maxY);
 
             transform.position = zoom;
+        }
+    }
+
+    void CheckGameStateForCamera()
+    {
+        if (GameStateHandler.gameState == 0)
+        {
+            DisableAllCameraMovement();
         }
     }
 
