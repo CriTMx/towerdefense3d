@@ -6,10 +6,12 @@ public class EnemyMovement : MonoBehaviour
 {
 
     private float speed = 4f;
-    private float speedModifiable;
+    public float speedModifiable;
     private Transform target;
     private int waypointIndex = 0;
     private float speedTimer = 0f;
+
+    public float enemyEffectsOffset = 0.375f;
 
     
     void Start()
@@ -48,9 +50,9 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    public void ChangeSpeed(float amount)
+    public void ChangeSpeed(float factor)
     {
         speedTimer = 1f;
-        speedModifiable = amount;
+        speedModifiable = speed * factor;
     }
 }

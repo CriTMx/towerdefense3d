@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateHandler : MonoBehaviour
 {
@@ -20,5 +21,10 @@ public class GameStateHandler : MonoBehaviour
         GetComponent<WaveSpawner>().enableSpawning = false;
         shopPanel.SetActive(false);
         gameOverScreen.SetActive(true);
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }

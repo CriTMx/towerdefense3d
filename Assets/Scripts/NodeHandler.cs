@@ -13,7 +13,7 @@ public class NodeHandler : MonoBehaviour
 
     [Header("Optional")]
     public GameObject turret;
-    public Vector3 turretPositionOffset = new Vector3(0f, 0.5f, 0f);
+    public Vector3 turretPositionOffset = new Vector3(0f, 0.25f, 0f);
 
     BuildManager buildManager;
 

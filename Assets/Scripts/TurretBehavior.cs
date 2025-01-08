@@ -7,6 +7,8 @@ public class TurretBehavior : MonoBehaviour
     [Header("Setup")]
 
     private Transform target;
+    private EnemyHealth targetHealth;
+    EnemyMovement targetMovement;
     public Transform partToRotate;
     public float turnSpeed = 8f;
     public string enemyTag = "Enemy";
@@ -21,18 +23,22 @@ public class TurretBehavior : MonoBehaviour
     public bool useLaser = false;
     public LineRenderer lineRen;
     public ParticleSystem laserImpactEffect;
-
+    public ParticleSystem laserGlowEffect;
+    
     [Header("General Attributes")]
-
     public float range = 15f;
     
-
-    
+    [Header("Laser Attributes")]
+    public float laserEnemySpeedMultiplier = 0.5f;
+    public int laserDamageOverTime = 10;
+    public float laserDamageCooldown = 0.5f;
+    private float laserDamageTimer;
 
     void Start()
     {
         InvokeRepeating(nameof(UpdateTarget), 0f, 1f);
         lineRen = GetComponent<LineRenderer>();
+        laserDamageTimer = laserDamageCooldown;
     }
 
     // Update is called once per frame
@@ -40,11 +46,17 @@ public class TurretBehavior : MonoBehaviour
     {
         if (target == null)
         {
-            if (useLaser && lineRen.enabled)
+            if (useLaser)
             {
-                lineRen.enabled = false;
+                if (lineRen.enabled)
+                {
+                    lineRen.enabled = false;
+                }
+                
                 laserImpactEffect.Stop();
+                laserGlowEffect.gameObject.SetActive(false);
             }
+            targetHealth = null;
             return;
         }
 
@@ -68,10 +80,12 @@ public class TurretBehavior : MonoBehaviour
 
     void Laser()
     {
+        target.GetComponent<EnemyHealth>().TakeDamage(laserDamageOverTime * Time.deltaTime);
         if (!lineRen.enabled)
         {
             lineRen.enabled = true;
             laserImpactEffect.Play();
+            laserGlowEffect.gameObject.SetActive(true);
         }
 
         lineRen.SetPosition(0, firePoint.position);
@@ -79,12 +93,15 @@ public class TurretBehavior : MonoBehaviour
 
         AdjustLaserImpactEffectTransform();
 
-        target.gameObject.GetComponent<EnemyMovement>()?.ChangeSpeed(2);
+        targetMovement.ChangeSpeed(laserEnemySpeedMultiplier);
     }
+
 
     void AdjustLaserImpactEffectTransform()
     {
-        laserImpactEffect.transform.position = target.position;
+        EnemyMovement targetMovement = target.gameObject.GetComponent<EnemyMovement>();
+        Vector3 effectPos = firePoint.position - target.position;
+        laserImpactEffect.transform.position = target.position + effectPos.normalized * targetMovement.enemyEffectsOffset;
         laserImpactEffect.transform.rotation = partToRotate.rotation;
         laserImpactEffect.transform.Rotate(Vector3.up, 180);
     }
@@ -129,6 +146,8 @@ public class TurretBehavior : MonoBehaviour
         if (nearestEnemy != null && shortestDist <= range)
         {
             target = nearestEnemy.transform;
+            targetHealth = target.GetComponent<EnemyHealth>();
+            targetMovement = target.gameObject.GetComponent<EnemyMovement>();
         }
     }
 
