@@ -15,11 +15,12 @@ public class GameStateHandler : MonoBehaviour
 
     public GameObject shopPanel;
     public GameObject gameOverScreen;
+    public GameObject pauseScreen;
+    public GameObject completeLevelScreen;
     public GameObject waveCountdownDisplay;
 
-    public GameObject pauseScreen;
-
-    public TMP_Text scoreText;
+    public TMP_Text scoreTextLevelFail;
+    public TMP_Text scoreTextLevelClear;
 
     public string nextLevel = "Level2";
     public int levelToUnlock = 2;
@@ -61,6 +62,12 @@ public class GameStateHandler : MonoBehaviour
 
     public void WinLevel()
     {
+        scoreTextLevelClear.text = (GetComponent<WaveSpawner>().waveNumber).ToString();
+        completeLevelScreen.SetActive(true);
+    }
+
+    public void NextLevel()
+    {
         PlayerPrefs.SetInt("levelReached", levelToUnlock);
         SceneManager.LoadScene(nextLevel);
     }
@@ -72,7 +79,8 @@ public class GameStateHandler : MonoBehaviour
         shopPanel.SetActive(false);
         waveCountdownDisplay.SetActive(false);
         gameOverScreen.SetActive(true);
-        scoreText.text = (GetComponent<WaveSpawner>().waveNumber).ToString();
+        scoreTextLevelFail.text = (GetComponent<WaveSpawner>().waveNumber).ToString();
+        
         gameState = 0;
     }
 

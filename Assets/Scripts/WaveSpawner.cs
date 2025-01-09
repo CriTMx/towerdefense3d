@@ -32,6 +32,13 @@ public class WaveSpawner : MonoBehaviour
                 return;
             }
 
+
+            if (waveNumber == waves.Length)
+            {
+                GameStateHandler.instance.WinLevel();
+                this.enabled = false;
+            }
+
             if (spawnCountdown <= 0f)
             {
                 StartCoroutine(SpawnWave());
@@ -58,17 +65,10 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveNumber++;
-
-        if (waveNumber >= waves.Length)
-        {
-            Debug.Log("Level Cleared");
-            this.enabled = false;
-        }
     }
 
     private void SpawnEnemy(GameObject enemy)
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        EnemiesAlive++;
     }
 }

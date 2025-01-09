@@ -46,6 +46,7 @@ public class EnemyHealth : MonoBehaviour
         Destroy(deathEffectInstance, 0.5f);
 
         WaveSpawner.EnemiesAlive--;
+        Debug.Log(WaveSpawner.EnemiesAlive);
 
         Destroy(gameObject);
     }
