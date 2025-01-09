@@ -13,16 +13,48 @@ public class GameStateHandler : MonoBehaviour
 
     public int score;
 
+    public GameObject shopPanel;
+    public GameObject gameOverScreen;
+    public GameObject waveCountdownDisplay;
+
+    public GameObject pauseScreen;
+
+    public TMP_Text scoreText;
+
     private void Awake()
     {
         if (instance != null) return;
         instance = this;
     }
 
-    public GameObject shopPanel;
-    public GameObject gameOverScreen;
-    public GameObject waveCountdownDisplay;
-    public TMP_Text scoreText;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E))
+        {
+            TogglePausedState();
+        }
+    }
+
+    public void TogglePausedState()
+    {
+        pauseScreen.SetActive(!pauseScreen.activeSelf);
+
+        if (pauseScreen.activeSelf)
+        {
+            Time.timeScale = 0f;
+            gameState = 2;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            gameState = 2;
+        }
+    }
+
+    public void ContinueGame()
+    {
+        TogglePausedState();
+    }
 
     public void EndGame()
     {
