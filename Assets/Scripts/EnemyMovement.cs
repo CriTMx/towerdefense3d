@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
-    private float speed = 4f;
+    [SerializeField] private float speed = 4f;
     public float speedModifiable;
     private Transform target;
     private int waypointIndex = 0;
@@ -46,6 +46,9 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             PlayerStatsHandler.ChangeLives(-1);
+
+            WaveSpawner.EnemiesAlive--;
+
             Destroy(gameObject);
         }
     }

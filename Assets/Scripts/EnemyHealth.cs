@@ -44,6 +44,9 @@ public class EnemyHealth : MonoBehaviour
 
         deathEffectInstance = Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(deathEffectInstance, 0.5f);
+
+        WaveSpawner.EnemiesAlive--;
+
         Destroy(gameObject);
     }
 }
