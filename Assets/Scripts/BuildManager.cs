@@ -28,6 +28,8 @@ public class BuildManager : MonoBehaviour
     public GameObject buildEffect;
     private GameObject buildEffectInstance;
 
+    public GameObject sellEffect;
+
     public bool CanBuild { get { return turretToBuild != null; } } 
     public bool HasMoney { get { return PlayerStatsHandler.Money >= turretToBuild.cost; } }
 

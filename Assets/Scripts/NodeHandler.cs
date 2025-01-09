@@ -65,8 +65,8 @@ public class NodeHandler : MonoBehaviour
         GameObject _turret = Instantiate(turretTemplate.upgradedTurret, GetBuildPosition(), turretTemplate.upgradedTurret.transform.rotation);
         turret = _turret;
 
-        GameObject upgradeEffect = Instantiate(buildManager.buildEffect, GetBuildPosition(), buildManager.buildEffect.transform.rotation);
-        Destroy(upgradeEffect, 1f);
+        GameObject upgradeEffectInstance = Instantiate(buildManager.buildEffect, GetBuildPosition(), buildManager.buildEffect.transform.rotation);
+        Destroy(upgradeEffectInstance, 1f);
 
         PlayerStatsHandler.Money -= turretTemplate.upgradeCost;
 
@@ -80,6 +80,7 @@ public class NodeHandler : MonoBehaviour
         {
             PlayerStatsHandler.Money += turretTemplate.sellCost;
             isUpgraded = false;
+            GameObject sellEffectInstance = Instantiate(buildManager.sellEffect, GetBuildPosition(), buildManager.sellEffect.transform.rotation);
             Destroy(turret);
         }
     }

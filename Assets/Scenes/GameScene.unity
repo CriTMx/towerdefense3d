@@ -2374,6 +2374,7 @@ MonoBehaviour:
   nodeUI: {fileID: 2935498584955226664}
   insufficientMoneyErrorText: {fileID: 269459020}
   buildEffect: {fileID: 7865587489334809301, guid: b3884439c974a18428fe4aceab0e250f, type: 3}
+  sellEffect: {fileID: 7865587489334809301, guid: 92b91a6a581fa364a85c70920f1f0073, type: 3}
 --- !u!114 &234826262
 MonoBehaviour:
   m_ObjectHideFlags: 0
