@@ -62,7 +62,7 @@ public class GameStateHandler : MonoBehaviour
         shopPanel.SetActive(false);
         waveCountdownDisplay.SetActive(false);
         gameOverScreen.SetActive(true);
-        scoreText.text = (GetComponent<WaveSpawner>().waveNumber - 1).ToString();
+        scoreText.text = (GetComponent<WaveSpawner>().waveNumber).ToString();
         gameState = 0;
     }
 

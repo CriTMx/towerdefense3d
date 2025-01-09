@@ -21,7 +21,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform spawnPoint;
 
-    public int waveNumber = 1;
+    public int waveNumber = 0;
 
     private void Update()
     {
@@ -56,6 +56,12 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveNumber++;
+
+        if (waveNumber >= waves.Length)
+        {
+            Debug.Log("Level Cleared");
+            this.enabled = false;
+        }
     }
 
     private void SpawnEnemy(GameObject enemy)

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class StartMenuScript : MonoBehaviour
 {
 
-    public string levelToLoad = "GameScene";
+    public string levelToLoad = "LevelSelect";
     public void StartGame()
     {
         SceneManager.LoadScene(levelToLoad);
