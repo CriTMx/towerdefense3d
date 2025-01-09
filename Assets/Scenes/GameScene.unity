@@ -2386,7 +2386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdffdc98246a314f8835dbb6739b4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 10
+  startMoney: 1000
   startLives: 1
   moneyText: {fileID: 971193079}
   livesText: {fileID: 429603576}
@@ -9020,22 +9020,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardTurret:
     turret: {fileID: 6069292053972935913, guid: 265b283dbb5b8b34eb7744ad3504fa54, type: 3}
-    cost: 2
+    cost: 4
     upgradedTurret: {fileID: 6069292053972935913, guid: 253b22d41a67cf749af274f4e2785d0a, type: 3}
     upgradeCost: 30
-    sellCost: 0
+    sellCost: 3
   missileTurret:
     turret: {fileID: 602377583556866445, guid: 989d1b409004b29448bb480cda54c04e, type: 3}
     cost: 8
-    upgradedTurret: {fileID: 0}
-    upgradeCost: 0
-    sellCost: 0
+    upgradedTurret: {fileID: 602377583556866445, guid: ef53d1af20feb6448927a882c0c80d90, type: 3}
+    upgradeCost: 70
+    sellCost: 6
   laserTurret:
     turret: {fileID: 649783817391714001, guid: a8be2171e03a91045a4a7da5867ebd4f, type: 3}
     cost: 10
-    upgradedTurret: {fileID: 0}
-    upgradeCost: 0
-    sellCost: 0
+    upgradedTurret: {fileID: 649783817391714001, guid: 44cce30a1e575d647bbf0455aeb7776a, type: 3}
+    upgradeCost: 100
+    sellCost: 8
   standardTurretCostText: {fileID: 8557351099047703466}
   missleTurretCostText: {fileID: 6353484039163928777}
   laserTurretCostText: {fileID: 654187438}

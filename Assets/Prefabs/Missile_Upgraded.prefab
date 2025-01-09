@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1458850901853613913}
   - component: {fileID: 139908580542802714}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: Missile_Upgraded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 130, y: 130, z: 130}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1133865236752355973}
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef563d4aeb6b98249afb8e761fad59b5, type: 2}
+  - {fileID: 2100000, guid: 700741c3928850f4b8786e84e97854c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  explosionRadius: 5
-  bulletDamage: 100
+  explosionRadius: 10
+  bulletDamage: 200
   bulletImpactEffect: {fileID: 4419731184500307467, guid: 6e61ecbeeebc40b40bc25b1d4e144aac, type: 3}
-  bulletExplosionEffect: {fileID: 4419731184500307467, guid: d9f49f48f6a5a654185f604c133855c7, type: 3}
+  bulletExplosionEffect: {fileID: 4419731184500307467, guid: 8f6bcaadd66e19d41a8ac39d0aa0ac10, type: 3}
 --- !u!64 &139908580542802714
 MeshCollider:
   m_ObjectHideFlags: 0

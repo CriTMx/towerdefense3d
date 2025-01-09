@@ -249,9 +249,9 @@ MonoBehaviour:
   partToRotate: {fileID: 6202286778568330077}
   turnSpeed: 8
   enemyTag: Enemy
-  bulletPrefab: {fileID: 983525468938311421, guid: 15951a047e53a0f4d85a0ad87c964cba, type: 3}
+  bulletPrefab: {fileID: 983525468938311421, guid: 10c8004d4ba407d418526cefdc61a174, type: 3}
   firePoint: {fileID: 3740330072451489028}
-  fireRate: 1
+  fireRate: 2
   useLaser: 0
   lineRen: {fileID: 0}
   laserImpactEffect: {fileID: 0}
