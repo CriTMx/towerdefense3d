@@ -60,24 +60,8 @@ public class BuildManager : MonoBehaviour
         nodeUI.HideUI();
     }
 
-    public void BuildTurretOn(NodeHandler node)
-    {
-        if (PlayerStatsHandler.Money < turretToBuild.cost)
-        {
-            StartCoroutine(DisplayInsufficientMoneyError());
-            return;
-        }
-        /*Debug.Log("build turret on");*/
-        GameObject turret = Instantiate(turretToBuild.turret, node.GetBuildPosition(), turretToBuild.turret.transform.rotation);
-        node.turret = turret;
 
-        buildEffectInstance = Instantiate(buildEffect, node.GetBuildPosition(), buildEffect.transform.rotation);
-        Destroy(buildEffectInstance, 1f);
-
-        PlayerStatsHandler.Money -= turretToBuild.cost;
-    }
-
-    IEnumerator DisplayInsufficientMoneyError()
+    public IEnumerator DisplayInsufficientMoneyError()
     {
         if (insufficientMoneyErrorText.gameObject.activeInHierarchy)
             insufficientMoneyErrorText.gameObject.SetActive(false);

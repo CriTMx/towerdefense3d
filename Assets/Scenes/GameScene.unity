@@ -9021,12 +9021,21 @@ MonoBehaviour:
   standardTurret:
     turret: {fileID: 6069292053972935913, guid: 265b283dbb5b8b34eb7744ad3504fa54, type: 3}
     cost: 2
+    upgradedTurret: {fileID: 6069292053972935913, guid: 253b22d41a67cf749af274f4e2785d0a, type: 3}
+    upgradeCost: 30
+    sellCost: 0
   missileTurret:
     turret: {fileID: 602377583556866445, guid: 989d1b409004b29448bb480cda54c04e, type: 3}
     cost: 8
+    upgradedTurret: {fileID: 0}
+    upgradeCost: 0
+    sellCost: 0
   laserTurret:
     turret: {fileID: 649783817391714001, guid: a8be2171e03a91045a4a7da5867ebd4f, type: 3}
     cost: 10
+    upgradedTurret: {fileID: 0}
+    upgradeCost: 0
+    sellCost: 0
   standardTurretCostText: {fileID: 8557351099047703466}
   missleTurretCostText: {fileID: 6353484039163928777}
   laserTurretCostText: {fileID: 654187438}
@@ -18847,6 +18856,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 4484148559703402474}
+  upgradeText: {fileID: 777241045849188542}
+  sellText: {fileID: 1175868380175014261}
+  shop: {fileID: 1008162829}
 --- !u!1001 &3436725610564430248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18985,7 +18997,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2543153303419458207}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2935498584955226664}
+        m_TargetAssemblyTypeName: NodeUIHandler, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &3792447168724260293
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19738,7 +19762,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2136223806160396828}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2935498584955226664}
+        m_TargetAssemblyTypeName: NodeUIHandler, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &8554353569443712483
 RectTransform:
   m_ObjectHideFlags: 0

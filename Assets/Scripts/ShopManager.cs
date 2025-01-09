@@ -34,4 +34,5 @@ public class ShopManager : MonoBehaviour
     {
         BuildManager.instance.SetTurretToBuild(laserTurret);
     }
+
 }

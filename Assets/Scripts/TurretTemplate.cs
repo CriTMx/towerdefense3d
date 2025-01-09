@@ -7,4 +7,9 @@ public class TurretTemplate
 {
     public GameObject turret;
     public int cost;
+
+    public GameObject upgradedTurret;
+    public int upgradeCost;
+
+    public int sellCost;
 }

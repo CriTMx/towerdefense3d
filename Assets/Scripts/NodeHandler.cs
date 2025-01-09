@@ -11,8 +11,13 @@ public class NodeHandler : MonoBehaviour
     public Color clickColor = new Color(255, 128, 0);
     public Color errorColor = Color.red;
 
-    [Header("Optional")]
+    [HideInInspector]
     public GameObject turret;
+    [HideInInspector]
+    public TurretTemplate turretTemplate;
+    [HideInInspector]
+    public bool isUpgraded = false;
+
     public Vector3 turretPositionOffset = new Vector3(0f, 0.25f, 0f);
 
     BuildManager buildManager;
@@ -26,6 +31,57 @@ public class NodeHandler : MonoBehaviour
     {
         ren = GetComponent<Renderer>();
         buildManager = BuildManager.instance;
+    }
+
+    public void BuildTurret(TurretTemplate turretToBuild)
+    {
+        if (PlayerStatsHandler.Money < turretToBuild.cost)
+        {
+            StartCoroutine(buildManager.DisplayInsufficientMoneyError());
+            return;
+        }
+        /*Debug.Log("build turret on");*/
+        GameObject _turret = Instantiate(turretToBuild.turret, GetBuildPosition(), turretToBuild.turret.transform.rotation);
+        turret = _turret;
+        turretTemplate = turretToBuild;
+
+        GameObject buildEffectInstance = Instantiate(buildManager.buildEffect, GetBuildPosition(), buildManager.buildEffect.transform.rotation);
+        Destroy(buildEffectInstance, 1f);
+
+        PlayerStatsHandler.Money -= turretToBuild.cost;
+    }
+
+    public void UpgradeTurret()
+    {
+        if (PlayerStatsHandler.Money < turretTemplate.upgradeCost)
+        {
+            StartCoroutine(buildManager.DisplayInsufficientMoneyError());
+            return;
+        }
+
+        Destroy(turret);
+        Debug.Log(turretTemplate.ToString());
+        Debug.Log(turretTemplate.upgradedTurret.ToString());
+        GameObject _turret = Instantiate(turretTemplate.upgradedTurret, GetBuildPosition(), turretTemplate.upgradedTurret.transform.rotation);
+        turret = _turret;
+
+        GameObject upgradeEffect = Instantiate(buildManager.buildEffect, GetBuildPosition(), buildManager.buildEffect.transform.rotation);
+        Destroy(upgradeEffect, 1f);
+
+        PlayerStatsHandler.Money -= turretTemplate.upgradeCost;
+
+
+        isUpgraded = true;
+    }
+
+    public void SellTurret()
+    {
+        if (turret != null)
+        {
+            PlayerStatsHandler.Money += turretTemplate.sellCost;
+            isUpgraded = false;
+            Destroy(turret);
+        }
     }
 
     private void OnMouseEnter()
@@ -57,7 +113,7 @@ public class NodeHandler : MonoBehaviour
 
         
 
-        buildManager.BuildTurretOn(this);
+        BuildTurret(buildManager.GetTurretToBuild());
     }
 
     private void OnMouseUp()
