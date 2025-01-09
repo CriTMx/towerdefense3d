@@ -18678,7 +18678,7 @@ GameObject:
   - component: {fileID: 2543153303419458207}
   - component: {fileID: 3651893002744718875}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: SellButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18856,6 +18856,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 4484148559703402474}
+  upgradeButton: {fileID: 8523356409528823567}
+  sellButton: {fileID: 3651893002744718875}
   upgradeText: {fileID: 777241045849188542}
   sellText: {fileID: 1175868380175014261}
   shop: {fileID: 1008162829}
@@ -19051,7 +19053,7 @@ GameObject:
   - component: {fileID: 2136223806160396828}
   - component: {fileID: 8523356409528823567}
   m_Layer: 0
-  m_Name: Button
+  m_Name: UpgradeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

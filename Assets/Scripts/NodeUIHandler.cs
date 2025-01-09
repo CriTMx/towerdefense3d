@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class NodeUIHandler : MonoBehaviour
 {
     public GameObject ui;
     private NodeHandler targetNode;
+
+    public Button upgradeButton;
+    public Button sellButton;
     public TMP_Text upgradeText;
     public TMP_Text sellText;
 
@@ -14,7 +18,16 @@ public class NodeUIHandler : MonoBehaviour
 
     public void UpdateButtonText()
     {
-        upgradeText.text = "<b>Upgrade</b>\n-" + (targetNode.turretTemplate.upgradeCost).ToString();
+        if (!targetNode.isUpgraded)
+        {
+            upgradeButton.interactable = true;
+            upgradeText.text = "<b>Upgrade</b>\n-" + (targetNode.turretTemplate.upgradeCost).ToString();
+        }
+        else
+        {
+            upgradeButton.interactable = false;
+            upgradeText.text = "<b>Upgrade</b>\n" + "MAXED";
+        }
         sellText.text = "<b>Sell</b>\n+" + (targetNode.turretTemplate.sellCost).ToString();
     }
 
