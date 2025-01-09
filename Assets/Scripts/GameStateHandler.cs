@@ -86,7 +86,7 @@ public class GameStateHandler : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Exit()
