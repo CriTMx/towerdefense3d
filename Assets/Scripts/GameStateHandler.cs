@@ -21,6 +21,9 @@ public class GameStateHandler : MonoBehaviour
 
     public TMP_Text scoreText;
 
+    public string nextLevel = "Level2";
+    public int levelToUnlock = 2;
+
     private void Awake()
     {
         if (instance != null) return;
@@ -55,6 +58,13 @@ public class GameStateHandler : MonoBehaviour
     {
         TogglePausedState();
     }
+
+    public void WinLevel()
+    {
+        PlayerPrefs.SetInt("levelReached", levelToUnlock);
+        SceneManager.LoadScene(nextLevel);
+    }
+
 
     public void EndGame()
     {
